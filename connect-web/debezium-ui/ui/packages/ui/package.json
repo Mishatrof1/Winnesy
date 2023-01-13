@@ -1,0 +1,43 @@
+{
+  "name": "@debezium/ui",
+  "federatedModuleName": "dbz",
+  "port": 8888,
+  "version": "0.0.1",
+  "description": "Debezium UI",
+  "main": "index.tsx",
+  "repository": "https://github.com/debezium/debezium-ui.git",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "webpack --progress --config webpack.prod.js",
+    "start": "webpack serve --color --progress --config webpack.dev.js",
+    "start:prod": "node scripts/serve",
+    "lint": "tslint -c ./tslint.json --project .",
+    "format": "prettier --check --write ./src/**/*.{tsx,ts}",
+    "build:bundle-profile": "webpack --profile --json > stats.json",
+    "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "i18n": "i18next 'src/**/**/*.{ts,tsx}' [-oc] -c './i18next-parser.config.js' -o './src/locales/$LOCALE/$NAMESPACE.json'"
+  },
+  "peerDependencies": {
+    "@patternfly/patternfly": "^4.115.2",
+    "@patternfly/react-core": "^4.87.2",
+    "@patternfly/react-icons": "^4.7.11",
+    "@patternfly/react-styles": "^4.7.8",
+    "@patternfly/react-table": "^4.24.1",
+    "i18next": "^19.9.1",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-http-backend": "^1.2.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-i18next": "^11.8.8",
+    "react-router-dom": "^5.2.0"
+  },
+  "dependencies": {
+    "@debezium/ui-models": "^1.0.0",
+    "@debezium/ui-services": "^1.0.0",
+    "tslib": "^2.2.0"
+  }
+}

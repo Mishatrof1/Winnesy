@@ -1,0 +1,16 @@
+{
+    "name": "mysql-inventory-customers",
+    "config": {
+          "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+          "tasks.max": "1",
+          "database.server.name": "mysql-kafka-connect",
+          "database.server.id": 6162,
+          "database.hostname": "mysql",
+          "database.user": "debezium",
+          "database.password": "Hy2cm79xwh5ZzJpf2w5y",
+          "database.allowPublicKeyRetrieval":"true",
+          "database.history.kafka.bootstrap.servers": "kafka:9092",
+          "database.history.kafka.topic": "mysql.schema-changes.inventory.customers",
+          "table.include.list": "inventory.customers"
+    }
+}
